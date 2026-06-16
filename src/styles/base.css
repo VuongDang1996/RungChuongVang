@@ -1,0 +1,43 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0f19;
+  --bg-2: #151126;
+  --gold: #ffd700;
+  --gold-deep: #b97800;
+  --cyan: #00f2fe;
+  --pink: #ff007f;
+  --green: #36ff9c;
+  --danger: #ff3b4f;
+  --text: #f8fbff;
+  --muted: #b7c2d8;
+  --panel: rgba(255, 255, 255, 0.1);
+  --panel-strong: rgba(255, 255, 255, 0.16);
+  --border: rgba(255, 255, 255, 0.2);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  font-family: Inter, Montserrat, Poppins, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0, 242, 254, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 127, 0.14), transparent 28%),
+    linear-gradient(135deg, var(--bg), var(--bg-2));
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+}

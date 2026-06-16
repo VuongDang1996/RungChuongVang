@@ -1,0 +1,212 @@
+.app-shell {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 18px;
+}
+
+.stage-frame {
+  position: relative;
+  width: min(100%, calc(100svh * 16 / 9));
+  max-width: 1600px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 18%, rgba(255, 215, 0, 0.15), transparent 24%),
+    linear-gradient(140deg, rgba(11, 15, 25, 0.92), rgba(19, 14, 38, 0.94));
+  background-size: 64px 64px, 64px 64px, auto, auto;
+  box-shadow: var(--shadow), inset 0 0 90px rgba(0, 242, 254, 0.12);
+}
+
+.stage-frame::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.05));
+}
+
+.slide {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 3vw, 46px);
+  animation: slideEnter 360ms ease both;
+}
+
+.slide--question {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(10px, 1.3vw, 18px);
+  justify-content: stretch;
+}
+
+.slide--board {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  align-content: stretch;
+  justify-content: stretch;
+  padding: clamp(18px, 2.4vw, 38px);
+}
+
+.slide--title,
+.slide--rules,
+.slide--victory {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title-content,
+.victory-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(920px, 90%);
+  margin: auto;
+}
+
+.rules-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 26px;
+}
+
+.rule-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(1120px, 92%);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.board-shell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: clamp(10px, 1.3vw, 18px);
+}
+
+.board-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.board-grid {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(10px, 1.25vw, 16px);
+}
+
+.board-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.board-actions {
+  display: grid;
+  min-width: min(420px, 100%);
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.question-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  gap: clamp(14px, 1.6vw, 24px);
+  align-items: center;
+}
+
+.question-main {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: clamp(10px, 1.2vw, 18px);
+}
+
+.question-side {
+  display: grid;
+  min-height: 0;
+  align-content: center;
+  gap: 0;
+}
+
+.slide--question .top-progress,
+.slide--question .control-bar {
+  margin-block: 0;
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-shell {
+    padding: 0;
+  }
+
+  .stage-frame {
+    min-height: 100svh;
+    border-radius: 0;
+    aspect-ratio: auto;
+  }
+
+  .slide {
+    min-height: 100svh;
+  }
+
+  .rule-grid,
+  .board-grid,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-side {
+    grid-template-columns: 180px 1fr;
+    align-items: stretch;
+  }
+}
+
+@media (max-height: 850px) and (min-width: 901px) {
+  .app-shell {
+    padding: 10px;
+  }
+
+  .slide {
+    padding: clamp(16px, 2.2vw, 34px);
+  }
+
+  .question-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(170px, 220px);
+    gap: 18px;
+  }
+
+  .board-grid {
+    gap: 10px;
+  }
+}
