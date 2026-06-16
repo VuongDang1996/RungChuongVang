@@ -30,7 +30,18 @@ Thư mục build sẽ nằm trong `dist/`.
 
 ## Chỉnh sửa câu hỏi
 
-Toàn bộ câu hỏi nằm trong:
+Các gói câu hỏi nằm trong:
+
+```txt
+src/data/questionPacks.js
+```
+
+Hiện có 2 gói:
+
+- `Ngành Thiếu`: đang dùng 20 câu hỏi hiện tại.
+- `Ngành Đồng`: đang để trống để bổ sung sau.
+
+Toàn bộ câu hỏi Ngành Thiếu nằm trong:
 
 ```txt
 src/data/questions.js
@@ -55,6 +66,8 @@ Mỗi câu có dạng:
 ```
 
 Chỉ cần thêm, sửa hoặc xóa dữ liệu trong file này. Giao diện sẽ tự render theo dữ liệu.
+
+Khi muốn bổ sung Ngành Đồng, thêm câu hỏi vào mảng `questions` của gói `nganh-dong` trong `src/data/questionPacks.js`, hoặc tách ra file riêng rồi import tương tự `questions.js`.
 
 ## Điều khiển game
 

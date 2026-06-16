@@ -7,10 +7,33 @@ const levelClass = {
   "Nâng cao": "question-tile--hard"
 };
 
-export function renderQuestionBoard({ questions, state }) {
+export function renderQuestionBoard({ questionPacks, questions, state }) {
   const playedCount = getPlayedCount(state);
   const remainingCount = questions.length - playedCount;
   const boardProgress = questions.length > 0 ? (playedCount / questions.length) * 100 : 0;
+  const activePack = questionPacks.find((pack) => pack.id === state.activePackId) || questionPacks[0];
+
+  const packCards = questionPacks
+    .map((pack) => {
+      const active = pack.id === state.activePackId;
+      const packPlayedCount = state.playedQuestionIdsByPack.get(pack.id)?.size || 0;
+      const packTotal = pack.questions.length;
+      const empty = packTotal === 0;
+
+      return `
+        <button
+          class="pack-card ${active ? "pack-card--active" : ""} ${empty ? "pack-card--empty" : ""}"
+          data-action="select-pack"
+          data-pack-id="${escapeHtml(pack.id)}"
+          aria-pressed="${active ? "true" : "false"}"
+        >
+          <span class="pack-card__kicker">${empty ? "Chờ dữ liệu" : `${packPlayedCount}/${packTotal}`}</span>
+          <strong>${escapeHtml(pack.title)}</strong>
+          <span>${escapeHtml(pack.subtitle)}</span>
+        </button>
+      `;
+    })
+    .join("");
 
   const tiles = questions
     .map((question, index) => {
@@ -41,6 +64,15 @@ export function renderQuestionBoard({ questions, state }) {
     })
     .join("");
 
+  const emptyState = `
+    <div class="board-empty glass-panel">
+      <span class="board-empty__icon">+</span>
+      <h3>${escapeHtml(activePack.title)} chưa có câu hỏi</h3>
+      <p>${escapeHtml(activePack.description)}</p>
+      <code>src/data/questionPacks.js</code>
+    </div>
+  `;
+
   return `
     <section class="slide slide--board">
       <div class="board-shell">
@@ -50,18 +82,24 @@ export function renderQuestionBoard({ questions, state }) {
             <h2>Chọn thử thách tiếp theo</h2>
           </div>
           <div class="board-score glass-panel">
-            <span>Đã chơi</span>
-            <strong>${playedCount}/${questions.length}</strong>
+            <span>${questions.length > 0 ? "Đã chơi" : "Trạng thái"}</span>
+            <strong>${questions.length > 0 ? `${playedCount}/${questions.length}` : "Chưa có"}</strong>
           </div>
         </header>
+
+        <div class="pack-switcher" aria-label="Chọn gói câu hỏi">
+          ${packCards}
+        </div>
 
         <div class="board-progress" aria-label="Tiến độ câu đã chơi">
           <span style="width: ${boardProgress}%"></span>
         </div>
 
-        <div class="board-grid" aria-label="Danh sách câu hỏi">
-          ${tiles}
-        </div>
+        ${
+          questions.length > 0
+            ? `<div class="board-grid" aria-label="Danh sách câu hỏi">${tiles}</div>`
+            : emptyState
+        }
 
         <footer class="board-footer">
           <div class="board-legend">

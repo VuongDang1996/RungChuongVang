@@ -3,12 +3,15 @@ export const RULES_SLIDE = 1;
 export const QUESTION_BOARD_SLIDE = 2;
 export const FIRST_QUESTION_SLIDE = 3;
 
-export function createGameState(totalQuestions) {
+export function createGameState(questionPacks) {
+  const defaultPack = questionPacks[0];
+
   return {
     slideIndex: 0,
-    totalSlides: totalQuestions + 4,
-    totalQuestions,
-    playedQuestionIds: new Set(),
+    totalSlides: getTotalSlides(defaultPack?.questions.length || 0),
+    totalQuestions: defaultPack?.questions.length || 0,
+    activePackId: defaultPack?.id || "",
+    playedQuestionIdsByPack: new Map(questionPacks.map((pack) => [pack.id, new Set()])),
     lastQuestionIndex: null,
     remaining: 15,
     duration: 15,
@@ -16,6 +19,38 @@ export function createGameState(totalQuestions) {
     timerStatus: "idle",
     answerVisible: false
   };
+}
+
+export function getTotalSlides(totalQuestions) {
+  return totalQuestions + 4;
+}
+
+export function getActiveQuestionPack(state, questionPacks) {
+  return questionPacks.find((pack) => pack.id === state.activePackId) || questionPacks[0];
+}
+
+export function getActiveQuestions(state, questionPacks) {
+  return getActiveQuestionPack(state, questionPacks)?.questions || [];
+}
+
+export function getActivePlayedSet(state) {
+  if (!state.playedQuestionIdsByPack.has(state.activePackId)) {
+    state.playedQuestionIdsByPack.set(state.activePackId, new Set());
+  }
+
+  return state.playedQuestionIdsByPack.get(state.activePackId);
+}
+
+export function switchQuestionPack(state, questionPacks, packId) {
+  const nextPack = questionPacks.find((pack) => pack.id === packId);
+  if (!nextPack) return false;
+
+  state.activePackId = nextPack.id;
+  state.totalQuestions = nextPack.questions.length;
+  state.totalSlides = getTotalSlides(state.totalQuestions);
+  state.lastQuestionIndex = null;
+  resetQuestionState(state);
+  return true;
 }
 
 export function isQuestionBoardSlide(state) {
@@ -39,19 +74,19 @@ export function getVictorySlideIndex(state) {
 }
 
 export function isQuestionPlayed(state, questionId) {
-  return state.playedQuestionIds.has(questionId);
+  return getActivePlayedSet(state).has(questionId);
 }
 
 export function markQuestionPlayed(state, questionId) {
-  state.playedQuestionIds.add(questionId);
+  getActivePlayedSet(state).add(questionId);
 }
 
 export function getPlayedCount(state) {
-  return state.playedQuestionIds.size;
+  return getActivePlayedSet(state).size;
 }
 
 export function areAllQuestionsPlayed(state) {
-  return getPlayedCount(state) >= state.totalQuestions;
+  return state.totalQuestions > 0 && getPlayedCount(state) >= state.totalQuestions;
 }
 
 export function resetQuestionState(state) {
@@ -62,7 +97,9 @@ export function resetQuestionState(state) {
 }
 
 export function resetGameProgress(state) {
-  state.playedQuestionIds.clear();
+  for (const playedSet of state.playedQuestionIdsByPack.values()) {
+    playedSet.clear();
+  }
   state.lastQuestionIndex = null;
   resetQuestionState(state);
 }

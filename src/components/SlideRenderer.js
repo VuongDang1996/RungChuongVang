@@ -1,7 +1,7 @@
 import { renderSimpleControls } from "./Controls.js";
 import { renderQuestionBoard } from "./QuestionBoard.js";
 import { renderQuestionSlide } from "./QuestionSlide.js";
-import { QUESTION_BOARD_SLIDE, getQuestionIndex, isQuestionSlide } from "../utils/gameState.js";
+import { QUESTION_BOARD_SLIDE, getActiveQuestions, getQuestionIndex, isQuestionSlide } from "../utils/gameState.js";
 
 function renderStageBeams() {
   return `
@@ -108,10 +108,12 @@ function renderVictorySlide(state) {
   `;
 }
 
-export function renderSlide(state, questions) {
+export function renderSlide(state, questionPacks) {
+  const questions = getActiveQuestions(state, questionPacks);
+
   if (state.slideIndex === 0) return renderTitleSlide(state);
   if (state.slideIndex === 1) return renderRulesSlide(state);
-  if (state.slideIndex === QUESTION_BOARD_SLIDE) return renderQuestionBoard({ questions, state });
+  if (state.slideIndex === QUESTION_BOARD_SLIDE) return renderQuestionBoard({ questionPacks, questions, state });
 
   if (isQuestionSlide(state)) {
     const questionIndex = getQuestionIndex(state);

@@ -3,13 +3,14 @@ import "./styles/layout.css";
 import "./styles/components.css";
 import "./styles/animations.css";
 
-import { questions } from "./data/questions.js";
+import { questionPacks } from "./data/questionPacks.js";
 import { CountdownTimer, updateTimerView } from "./components/Timer.js";
 import { renderSlide } from "./components/SlideRenderer.js";
 import {
   QUESTION_BOARD_SLIDE,
   areAllQuestionsPlayed,
   createGameState,
+  getActiveQuestions,
   getQuestionIndex,
   getQuestionSlideIndex,
   getVictorySlideIndex,
@@ -18,11 +19,12 @@ import {
   isQuestionSlide,
   markQuestionPlayed,
   resetGameProgress,
-  resetQuestionState
+  resetQuestionState,
+  switchQuestionPack
 } from "./utils/gameState.js";
 
 const app = document.querySelector("#app");
-const state = createGameState(questions.length);
+const state = createGameState(questionPacks);
 
 const timer = new CountdownTimer({
   duration: state.duration,
@@ -44,7 +46,7 @@ function render() {
   app.innerHTML = `
     <main class="app-shell">
       <div class="stage-frame">
-        ${renderSlide(state, questions)}
+        ${renderSlide(state, questionPacks)}
       </div>
     </main>
   `;
@@ -106,6 +108,7 @@ function revealAnswer() {
   if (!isQuestionSlide(state)) return;
   timer.stop();
   state.answerVisible = true;
+  const questions = getActiveQuestions(state, questionPacks);
   const question = questions[getQuestionIndex(state)];
   if (question) {
     markQuestionPlayed(state, question.id);
@@ -118,6 +121,7 @@ function revealAnswer() {
 
 function selectQuestion(button) {
   const questionIndex = Number(button.dataset.questionIndex);
+  const questions = getActiveQuestions(state, questionPacks);
   const question = questions[questionIndex];
   if (!question || isQuestionPlayed(state, question.id)) return;
 
@@ -126,6 +130,14 @@ function selectQuestion(button) {
   state.slideIndex = getQuestionSlideIndex(questionIndex);
   resetQuestionState(state);
   timer.reset();
+  render();
+}
+
+function selectQuestionPack(button) {
+  const packId = button.dataset.packId;
+  timer.stop();
+  if (!switchQuestionPack(state, questionPacks, packId)) return;
+  state.slideIndex = QUESTION_BOARD_SLIDE;
   render();
 }
 
@@ -160,6 +172,7 @@ app.addEventListener("click", (event) => {
     previous: previousSlide,
     "start-timer": startTimer,
     "reveal-answer": revealAnswer,
+    "select-pack": () => selectQuestionPack(button),
     "select-question": () => selectQuestion(button),
     "back-to-board": backToBoard,
     "continue-after-question": continueAfterQuestion,
