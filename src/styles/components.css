@@ -49,7 +49,7 @@ h1 {
 }
 
 .board-header h2 {
-  font-size: clamp(1.85rem, 3.25vw, 3.8rem);
+  font-size: clamp(1.75rem, 3vw, 3.45rem);
 }
 
 .btn {
@@ -208,7 +208,7 @@ h1 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 16px;
-  padding: 10px 16px;
+  padding: 9px 16px 16px;
   background:
     radial-gradient(circle at 12% 0%, rgba(0, 242, 254, 0.22), transparent 42%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
@@ -220,8 +220,8 @@ h1 {
 
 .pack-card::after {
   position: absolute;
-  inset: auto 14px 12px 14px;
-  height: 3px;
+  inset: auto 16px 7px 16px;
+  height: 2px;
   border-radius: 999px;
   content: "";
   background: rgba(255, 255, 255, 0.12);
@@ -419,15 +419,6 @@ h1 {
 .question-tile--played .question-tile__level {
   color: rgba(255, 255, 255, 0.62);
   text-shadow: none;
-}
-
-.question-tile--recent:not(.question-tile--played)::after {
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(255, 215, 0, 0.5);
-  border-radius: 14px;
-  content: "";
-  pointer-events: none;
 }
 
 .board-legend {
@@ -766,7 +757,7 @@ h1 {
   }
 
   .board-header h2 {
-    font-size: clamp(1.45rem, 2.55vw, 2.7rem);
+    font-size: clamp(1.35rem, 2.35vw, 2.45rem);
   }
 
   .question-tile {
@@ -796,9 +787,9 @@ h1 {
   }
 
   .pack-card {
-    min-height: 54px;
+    min-height: 46px;
     border-radius: 13px;
-    padding: 8px 12px;
+    padding: 7px 12px 11px;
   }
 
   .pack-card strong {
@@ -806,12 +797,15 @@ h1 {
   }
 
   .pack-card span:last-child {
-    margin-top: 2px;
-    font-size: 0.7rem;
+    display: none;
   }
 
   .pack-card__kicker {
     font-size: 0.68rem;
+  }
+
+  .pack-card::after {
+    inset: auto 12px 5px 12px;
   }
 
   .board-score {

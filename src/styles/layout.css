@@ -54,7 +54,7 @@
   grid-template-rows: minmax(0, 1fr);
   align-content: stretch;
   justify-content: stretch;
-  padding: clamp(14px, 1.8vw, 30px);
+  padding: clamp(12px, 1.55vw, 26px);
 }
 
 .slide--title,
@@ -98,7 +98,7 @@
   height: 100%;
   min-height: 0;
   grid-template-rows: auto auto auto minmax(0, 1fr) auto;
-  gap: clamp(7px, 0.8vw, 12px);
+  gap: clamp(6px, 0.7vw, 10px);
 }
 
 .board-header {
