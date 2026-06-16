@@ -1,6 +1,6 @@
-# Rung Chuông Vàng
+# Sáng Danh Đạo Thầy
 
-Project web tương tác cho game show "Rung Chuông Vàng", viết bằng Vite + JavaScript thuần. Giao diện tối ưu cho trình chiếu 16:9, có 23 slide, 20 câu hỏi, timer 15 giây và hiệu ứng hiện đáp án.
+Project web tương tác cho game show "Sáng Danh Đạo Thầy", viết bằng Vite + JavaScript thuần. Giao diện tối ưu cho trình chiếu 16:9, có các gói câu hỏi, timer 15 giây và hiệu ứng hiện đáp án.
 
 ## Cài đặt
 

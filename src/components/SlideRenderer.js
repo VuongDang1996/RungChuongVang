@@ -40,7 +40,7 @@ function renderTitleSlide(state) {
       <div class="title-content">
         ${renderBellVisual()}
         <p class="eyebrow">Game Show Tương Tác</p>
-        <h1>Rung Chuông Vàng</h1>
+        <h1>Sáng Danh Đạo Thầy</h1>
         <p class="subtitle">20 câu hỏi thử thách kiến thức, 15 giây cho mỗi lượt trả lời.</p>
         <button class="btn btn--hero" data-action="next">Bắt đầu trò chơi</button>
       </div>
@@ -53,7 +53,7 @@ function renderRulesSlide(state) {
     ["15 giây", "Mỗi câu hỏi có 15 giây suy nghĩ trước khi hết giờ."],
     ["A/B/C/D", "Người chơi chọn một đáp án duy nhất cho mỗi câu hỏi."],
     ["Loại trực tiếp", "Trả lời sai sẽ rời khỏi sàn thi đấu theo luật chương trình."],
-    ["Vinh quang", "Người còn lại cuối cùng sẽ rung chuông chiến thắng."]
+    ["Vinh quang", "Người còn lại cuối cùng sẽ hoàn thành thử thách."]
   ];
 
   return `
@@ -96,7 +96,7 @@ function renderVictorySlide(state) {
         ${renderBellVisual()}
         <p class="eyebrow">Vinh quang</p>
         <h2>Chúc mừng người chiến thắng</h2>
-        <p class="subtitle">Bạn đã vượt qua toàn bộ 20 câu hỏi và xứng đáng rung Chuông Vàng.</p>
+        <p class="subtitle">Bạn đã vượt qua toàn bộ thử thách và cùng nhau Sáng Danh Đạo Thầy.</p>
         <button class="btn btn--hero" data-action="reset-progress">Chơi lại</button>
       </div>
       ${renderSimpleControls({
