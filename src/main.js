@@ -6,6 +6,7 @@ import "./styles/animations.css";
 import { questionPacks } from "./data/questionPacks.js";
 import { CountdownTimer, updateTimerView } from "./components/Timer.js";
 import { renderSlide } from "./components/SlideRenderer.js";
+import { TimerSound } from "./utils/timerSound.js";
 import {
   QUESTION_BOARD_SLIDE,
   areAllQuestionsPlayed,
@@ -25,6 +26,7 @@ import {
 
 const app = document.querySelector("#app");
 const state = createGameState(questionPacks);
+const timerSound = new TimerSound();
 
 const timer = new CountdownTimer({
   duration: state.duration,
@@ -35,6 +37,7 @@ const timer = new CountdownTimer({
     updateTimerView(state);
   },
   onDone: () => {
+    timerSound.playDone();
     state.remaining = 0;
     state.progress = 0;
     state.timerStatus = "done";
@@ -61,6 +64,7 @@ function goToSlide(index) {
   }
 
   timer.stop();
+  timerSound.stop();
   state.slideIndex = nextIndex;
 
   if (isQuestionSlide(state)) {
@@ -102,11 +106,13 @@ function startTimer() {
   state.progress = 1;
   render();
   timer.start();
+  timerSound.start();
 }
 
 function revealAnswer() {
   if (!isQuestionSlide(state)) return;
   timer.stop();
+  timerSound.stop();
   state.answerVisible = true;
   const questions = getActiveQuestions(state, questionPacks);
   const question = questions[getQuestionIndex(state)];
@@ -126,6 +132,7 @@ function selectQuestion(button) {
   if (!question || isQuestionPlayed(state, question.id)) return;
 
   timer.stop();
+  timerSound.stop();
   state.lastQuestionIndex = questionIndex;
   state.slideIndex = getQuestionSlideIndex(questionIndex);
   resetQuestionState(state);
@@ -136,6 +143,7 @@ function selectQuestion(button) {
 function selectQuestionPack(button) {
   const packId = button.dataset.packId;
   timer.stop();
+  timerSound.stop();
   if (!switchQuestionPack(state, questionPacks, packId)) return;
   state.slideIndex = QUESTION_BOARD_SLIDE;
   render();
@@ -143,6 +151,7 @@ function selectQuestionPack(button) {
 
 function backToBoard() {
   timer.stop();
+  timerSound.stop();
   resetQuestionState(state);
   state.slideIndex = QUESTION_BOARD_SLIDE;
   render();
@@ -150,6 +159,7 @@ function backToBoard() {
 
 function continueAfterQuestion() {
   timer.stop();
+  timerSound.stop();
   resetQuestionState(state);
   state.slideIndex = areAllQuestionsPlayed(state) ? getVictorySlideIndex(state) : QUESTION_BOARD_SLIDE;
   render();
@@ -157,6 +167,7 @@ function continueAfterQuestion() {
 
 function resetProgress() {
   timer.stop();
+  timerSound.stop();
   resetGameProgress(state);
   state.slideIndex = 0;
   render();

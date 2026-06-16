@@ -181,7 +181,7 @@ h1 {
   gap: 0.13em;
   margin: 0;
   color: #f6b411;
-  font-size: clamp(3rem, 5.2vw, 7rem);
+  font-size: clamp(2.8rem, 4.65vw, 6.15rem);
   line-height: 0.78;
   transform: rotate(-1.8deg);
 }
@@ -204,10 +204,10 @@ h1 {
 }
 
 .home-copy .subtitle {
-  width: min(31vw, 520px);
+  width: min(27vw, 450px);
   margin: 1.9vw 0 0;
   color: #06386f;
-  font-size: clamp(0.9rem, 1.24vw, 1.65rem);
+  font-size: clamp(0.86rem, 1.12vw, 1.35rem);
   font-weight: 900;
   line-height: 1.35;
 }
@@ -1071,11 +1071,11 @@ h1 {
   }
 
   .home-title {
-    font-size: clamp(2.5rem, 4.65vw, 5.75rem);
+    font-size: clamp(2.35rem, 4.15vw, 5rem);
   }
 
   .home-copy .subtitle {
-    font-size: clamp(0.84rem, 1.1vw, 1.25rem);
+    font-size: clamp(0.78rem, 1vw, 1.05rem);
   }
 
   .home-start-button {
@@ -1262,7 +1262,7 @@ h1 {
   }
 
   .home-title {
-    font-size: clamp(2.15rem, 10vw, 3.7rem);
+    font-size: clamp(1.95rem, 8vw, 3rem);
   }
 
   .home-kicker {
@@ -1271,7 +1271,8 @@ h1 {
 
   .home-copy .subtitle {
     width: 100%;
-    font-size: clamp(0.82rem, 3.5vw, 1rem);
+    margin-top: 10px;
+    font-size: clamp(0.76rem, 3.15vw, 0.9rem);
   }
 
   .home-ribbon {

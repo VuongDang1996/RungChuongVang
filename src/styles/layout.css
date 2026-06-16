@@ -100,7 +100,7 @@
   z-index: 4;
   left: 4.7%;
   top: 22.3%;
-  width: 35.2%;
+  width: 31.8%;
   margin: 0;
 }
 
@@ -108,8 +108,8 @@
   position: absolute;
   z-index: 2;
   top: 13.2%;
-  right: 3.2%;
-  width: 58.5%;
+  right: 2.6%;
+  width: 56.2%;
   height: 64.6%;
   margin: 0;
 }
@@ -281,16 +281,16 @@
   .home-copy {
     left: 24px;
     right: 24px;
-    top: 44px;
+    top: 24px;
     width: auto;
   }
 
   .home-photo-card {
-    top: 38%;
+    top: 43%;
     right: 20px;
     left: 20px;
     width: auto;
-    height: 28%;
+    height: 17%;
   }
 
   .home-start-button {
@@ -341,7 +341,7 @@
 
   .home-copy {
     top: 21.5%;
-    width: 34.8%;
+    width: 31.4%;
   }
 
   .title-content--cover {
