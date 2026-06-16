@@ -1,5 +1,5 @@
 export class CountdownTimer {
-  constructor({ duration = 15, onTick, onDone }) {
+  constructor({ duration = 20, onTick, onDone }) {
     this.duration = duration;
     this.onTick = onTick;
     this.onDone = onDone;

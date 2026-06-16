@@ -126,7 +126,7 @@ function renderTitleSlide(state) {
                 <path d="M15 14H9c0 7 3 11 9 12M33 14h6c0 7-3 11-9 12M24 29v7M16 39h16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
               </svg>
             </span>
-            15 giây mỗi câu
+            20 giây mỗi câu
           </span>
         </div>
       </div>
@@ -136,7 +136,7 @@ function renderTitleSlide(state) {
 
 function renderRulesSlide(state) {
   const rules = [
-    ["15 giây", "Mỗi câu hỏi có 15 giây suy nghĩ trước khi hết giờ."],
+    ["20 giây", "Mỗi câu hỏi có 20 giây suy nghĩ trước khi hết giờ."],
     ["A/B/C/D", "Người chơi chọn một đáp án duy nhất cho mỗi câu hỏi."],
     ["Loại trực tiếp", "Trả lời sai sẽ rời khỏi sàn thi đấu theo luật chương trình."],
     ["Vinh quang", "Người còn lại cuối cùng sẽ hoàn thành thử thách."]

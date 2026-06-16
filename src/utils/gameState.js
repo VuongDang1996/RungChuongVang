@@ -13,8 +13,8 @@ export function createGameState(questionPacks) {
     activePackId: defaultPack?.id || "",
     playedQuestionIdsByPack: new Map(questionPacks.map((pack) => [pack.id, new Set()])),
     lastQuestionIndex: null,
-    remaining: 15,
-    duration: 15,
+    remaining: 20,
+    duration: 20,
     progress: 1,
     timerStatus: "idle",
     answerVisible: false
