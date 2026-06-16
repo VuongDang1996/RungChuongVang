@@ -39,71 +39,347 @@ h1 {
   text-transform: uppercase;
 }
 
-.home-copy .eyebrow {
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.72);
+.home-wave,
+.home-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.home-copy h1 {
-  max-width: 9.5ch;
-  font-size: clamp(2.7rem, 4.8vw, 5.8rem);
+.home-wave {
+  inset: auto 0 0;
+  z-index: 1;
+}
+
+.home-wave--light {
+  height: 28%;
+  background: #c9daf0;
+  clip-path: polygon(0 58%, 13% 72%, 28% 62%, 40% 47%, 57% 64%, 73% 68%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.home-wave--blue {
+  height: 23.5%;
+  background: linear-gradient(160deg, #004b98 0%, #003b82 54%, #002d68 100%);
+  clip-path: polygon(0 36%, 12% 72%, 28% 64%, 42% 48%, 59% 66%, 74% 67%, 100% 38%, 100% 100%, 0 100%);
+  box-shadow: 0 -18px 34px rgba(0, 57, 128, 0.16);
+}
+
+.home-decor {
+  z-index: 3;
+  color: #064784;
+}
+
+.home-star,
+.home-bolt {
+  position: absolute;
+  display: block;
+}
+
+.home-star {
+  width: clamp(16px, 2vw, 34px);
+  aspect-ratio: 1;
+  background: #f9b60d;
+  clip-path: polygon(50% 0, 62% 34%, 98% 35%, 69% 56%, 79% 91%, 50% 70%, 21% 91%, 31% 56%, 2% 35%, 38% 34%);
+  filter: drop-shadow(0 7px 0 rgba(5, 60, 118, 0.14));
+}
+
+.home-star--one {
+  left: 29.5%;
+  top: 27.8%;
+}
+
+.home-star--two {
+  left: 30.8%;
+  top: 58.5%;
+  transform: scale(0.82) rotate(10deg);
+}
+
+.home-star--three {
+  left: 34.8%;
+  top: 33.6%;
+  width: clamp(10px, 1.1vw, 18px);
+  background: #064784;
+}
+
+.home-star--four {
+  left: 11.6%;
+  top: 12.2%;
+  width: clamp(18px, 2.4vw, 38px);
+  background: rgba(255, 194, 39, 0.18);
+  filter: none;
+}
+
+.home-bolt {
+  width: clamp(18px, 2vw, 32px);
+  height: clamp(28px, 3.1vw, 54px);
+  background: #f4aa00;
+  clip-path: polygon(44% 0, 100% 0, 62% 43%, 100% 43%, 28% 100%, 45% 54%, 0 54%);
+}
+
+.home-bolt--one {
+  left: 46.6%;
+  top: 12.4%;
+  transform: rotate(15deg);
+}
+
+.home-bolt--two {
+  right: 6.9%;
+  top: 5.5%;
+  transform: rotate(-10deg);
+}
+
+.home-plane {
+  position: absolute;
+  color: #064784;
+}
+
+.home-plane--top {
+  left: 38%;
+  top: 4%;
+  width: clamp(54px, 5.2vw, 86px);
+  transform: rotate(-5deg);
+}
+
+.home-plane--bottom {
+  right: 2.4%;
+  bottom: 10.4%;
+  width: clamp(48px, 4.5vw, 72px);
+  color: #fff;
+  transform: rotate(12deg);
+}
+
+.home-dash {
+  position: absolute;
+  color: #064784;
+}
+
+.home-dash--top {
+  left: 25.3%;
+  top: 8.4%;
+  width: 21%;
+}
+
+.home-dash--bottom {
+  right: 2.8%;
+  bottom: 2.7%;
+  width: 16%;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.home-kicker {
+  margin: 0 0 0.85vw;
+  color: #064784;
+  font-size: clamp(1rem, 1.55vw, 2rem);
+  font-weight: 950;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.home-title {
+  display: grid;
+  gap: 0.13em;
+  margin: 0;
+  color: #f6b411;
+  font-size: clamp(3rem, 5.2vw, 7rem);
+  line-height: 0.78;
+  transform: rotate(-1.8deg);
+}
+
+.home-title span {
+  display: block;
+  width: max-content;
+  max-width: 100%;
   text-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.74),
-    0 0 18px rgba(255, 215, 0, 0.72),
-    0 0 52px rgba(255, 215, 0, 0.32);
+    0.055em 0.07em 0 #064784,
+    0 0.11em 0 rgba(0, 0, 0, 0.18),
+    0 0.16em 0.16em rgba(0, 38, 91, 0.24);
+}
+
+.home-title span:nth-child(3) {
+  color: #064784;
+  text-shadow:
+    0.055em 0.07em 0 rgba(0, 30, 70, 0.2),
+    0 0.12em 0 rgba(0, 0, 0, 0.14);
 }
 
 .home-copy .subtitle {
-  width: min(620px, 100%);
-  margin: 14px 0 0;
-  color: rgba(248, 251, 255, 0.96);
-  font-weight: 650;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.78);
+  width: min(31vw, 520px);
+  margin: 1.9vw 0 0;
+  color: #06386f;
+  font-size: clamp(0.9rem, 1.24vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.35;
 }
 
-.cover-photo {
+.home-photo-card::before {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  border: clamp(3px, 0.32vw, 6px) solid #f7b20b;
+  border-radius: 4.2vw;
+  content: "";
+  background: #fff8e8;
+  box-shadow: 0 24px 42px rgba(5, 53, 116, 0.14);
+  transform: rotate(-1.25deg);
+}
+
+.home-photo-card::after {
+  position: absolute;
+  inset: 2.5%;
+  border: 3px solid #fff;
+  border-radius: 3.5vw;
+  content: "";
+  pointer-events: none;
+  transform: rotate(-1.25deg);
+}
+
+.home-photo {
+  position: absolute;
+  inset: 3.2%;
+  width: 93.6%;
+  height: 93.6%;
+  border-radius: 3.35vw;
   object-fit: cover;
-  object-position: center 42%;
-  filter: brightness(1.04) saturate(1.06);
+  object-position: center 46%;
+  transform: rotate(-1.25deg);
+  filter: saturate(1.06) contrast(1.03);
 }
 
-.cover-overlay {
+.home-ribbon {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(5, 10, 20, 0.5) 0%, rgba(5, 10, 20, 0.18) 34%, rgba(5, 10, 20, 0.02) 66%, rgba(5, 10, 20, 0.04) 100%),
-    linear-gradient(180deg, rgba(5, 10, 20, 0.04) 0%, rgba(5, 10, 20, 0.01) 42%, rgba(5, 10, 20, 0.24) 100%);
-}
-
-.home-actions {
-  padding-top: clamp(8px, 1.2vw, 18px);
-}
-
-.home-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
-
-.home-meta span {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 999px;
-  padding: 0 16px;
-  background: rgba(5, 10, 20, 0.36);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: clamp(0.86rem, 1.15vw, 1rem);
-  font-weight: 850;
+  z-index: 2;
+  top: -8%;
+  right: 11%;
+  left: 19%;
+  display: grid;
+  min-height: 13.5%;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 0.95vw;
+  background: #064784;
+  box-shadow: 0 13px 0 rgba(0, 36, 92, 0.18);
+  color: #fff;
+  font-size: clamp(1rem, 2vw, 2.6rem);
+  font-weight: 950;
+  line-height: 1;
+  text-align: center;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
+  transform: rotate(-3.8deg);
 }
+
+.home-ribbon::after {
+  position: absolute;
+  inset: 9px;
+  border: 2px dashed rgba(255, 255, 255, 0.78);
+  border-radius: 0.62vw;
+  content: "";
+  pointer-events: none;
+}
+
+.home-start-button {
+  display: grid;
+  height: clamp(70px, 7.8vw, 132px);
+  grid-template-columns: clamp(74px, 7.7vw, 132px) minmax(0, 1fr) clamp(34px, 3.6vw, 58px);
+  align-items: center;
+  border: 0;
+  border-radius: 2vw;
+  padding: 0 1.1vw 0 0;
+  background: linear-gradient(180deg, #ffc93b 0%, #f5a900 100%);
+  box-shadow: 0 16px 0 rgba(2, 48, 109, 0.24), 0 26px 46px rgba(4, 47, 105, 0.28);
+  color: #063b74;
+  cursor: pointer;
+  font-size: clamp(1rem, 1.65vw, 2.2rem);
+  font-weight: 950;
+  text-transform: uppercase;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.home-start-button::after {
+  position: absolute;
+  inset: 9px 9px 9px clamp(70px, 7.2vw, 122px);
+  border: 2px dashed rgba(255, 255, 255, 0.74);
+  border-radius: 1.55vw;
+  content: "";
+  pointer-events: none;
+}
+
+.home-start-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 19px 0 rgba(2, 48, 109, 0.24), 0 30px 52px rgba(4, 47, 105, 0.32);
+}
+
+.home-start-icon {
+  display: grid;
+  width: clamp(74px, 7.7vw, 132px);
+  height: clamp(74px, 7.7vw, 132px);
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  border-radius: 1.45vw;
+  margin-left: -0.1vw;
+  background: #064784;
+  box-shadow: 0 11px 0 rgba(0, 35, 90, 0.32), inset 0 0 0 5px rgba(255, 255, 255, 0.06);
+  color: #ffc72c;
+}
+
+.home-start-icon svg {
+  width: 62%;
+}
+
+.home-start-arrow {
+  display: grid;
+  width: clamp(28px, 3vw, 48px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 3px solid #063b74;
+  border-radius: 50%;
+  font-size: clamp(1.4rem, 2.6vw, 3.2rem);
+  line-height: 0.75;
+}
+
+.home-badge {
+  display: grid;
+  min-height: clamp(48px, 4.95vw, 78px);
+  grid-template-columns: clamp(36px, 3.7vw, 62px) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65vw;
+  border: 1.5px solid #f7b20b;
+  border-radius: 0.8vw;
+  padding: 0.55vw 0.85vw 0.55vw 0.55vw;
+  background: rgba(0, 61, 132, 0.96);
+  box-shadow: 0 10px 24px rgba(0, 29, 82, 0.26);
+  color: #fff;
+  font-size: clamp(0.72rem, 1vw, 1.3rem);
+  font-weight: 950;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.home-badge__icon {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 0.75vw;
+  color: #fff;
+}
+
+.home-badge__icon svg {
+  width: 68%;
+}
+
+.home-badge__icon--gold {
+  background: #f6b411;
+  color: #064784;
+}
+
+.home-badge__icon--red {
+  background: #ef3348;
+}
+
+.home-badge__icon--white {
+  background: #fff;
+  color: #064784;
+}
+
 
 .rules-header h2,
 .board-header h2,
@@ -794,17 +1070,32 @@ h1 {
     font-size: 0.88rem;
   }
 
-  .home-copy h1 {
-    font-size: clamp(2.1rem, 3.75vw, 4.25rem);
+  .home-title {
+    font-size: clamp(2.5rem, 4.65vw, 5.75rem);
   }
 
   .home-copy .subtitle {
-    font-size: clamp(0.9rem, 1.35vw, 1.08rem);
+    font-size: clamp(0.84rem, 1.1vw, 1.25rem);
   }
 
-  .home-meta span {
-    min-height: 38px;
-    padding: 0 12px;
+  .home-start-button {
+    height: clamp(58px, 6.8vw, 104px);
+    grid-template-columns: clamp(58px, 6.8vw, 104px) minmax(0, 1fr) clamp(30px, 3.1vw, 46px);
+    font-size: clamp(0.9rem, 1.45vw, 1.55rem);
+  }
+
+  .home-start-button::after {
+    inset: 7px 7px 7px clamp(54px, 6.4vw, 96px);
+  }
+
+  .home-start-icon {
+    width: clamp(58px, 6.8vw, 104px);
+    height: clamp(58px, 6.8vw, 104px);
+  }
+
+  .home-badge {
+    min-height: clamp(42px, 4.4vw, 64px);
+    font-size: clamp(0.62rem, 0.86vw, 0.95rem);
   }
 
   .btn--hero {
@@ -970,22 +1261,54 @@ h1 {
     width: 170px;
   }
 
-  .home-copy h1 {
+  .home-title {
     font-size: clamp(2.15rem, 10vw, 3.7rem);
   }
 
-  .home-actions {
-    align-items: stretch;
-    flex-direction: column;
+  .home-kicker {
+    font-size: clamp(0.8rem, 4vw, 1rem);
   }
 
-  .home-actions .btn {
+  .home-copy .subtitle {
     width: 100%;
+    font-size: clamp(0.82rem, 3.5vw, 1rem);
   }
 
-  .home-meta span {
-    flex: 1 1 auto;
-    justify-content: center;
+  .home-ribbon {
+    font-size: clamp(0.72rem, 3.1vw, 1rem);
+  }
+
+  .home-start-button {
+    height: 66px;
+    grid-template-columns: 66px minmax(0, 1fr) 34px;
+    border-radius: 18px;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+
+  .home-start-button::after {
+    inset: 7px 7px 7px 62px;
+    border-radius: 14px;
+  }
+
+  .home-start-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 16px;
+  }
+
+  .home-start-arrow {
+    width: 30px;
+  }
+
+  .home-badge {
+    min-height: 44px;
+    border-radius: 12px;
+    padding: 6px;
+    font-size: clamp(0.6rem, 2.6vw, 0.75rem);
+  }
+
+  .home-badge__icon {
+    border-radius: 10px;
   }
 
   .board-header,
