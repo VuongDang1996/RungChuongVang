@@ -36,13 +36,16 @@ function renderBellVisual() {
 function renderTitleSlide(state) {
   return `
     <section class="slide slide--title">
-      ${renderStageBeams()}
-      <div class="title-content">
-        ${renderBellVisual()}
+      <img class="cover-photo" src="/assets/cover.jpg" alt="Tập thể thanh thiếu niên trong chương trình Sáng Danh Đạo Thầy" />
+      <div class="cover-overlay" aria-hidden="true"></div>
+      <div class="title-content title-content--cover">
         <p class="eyebrow">Game Show Tương Tác</p>
         <h1>Sáng Danh Đạo Thầy</h1>
-        <p class="subtitle">20 câu hỏi thử thách kiến thức, 15 giây cho mỗi lượt trả lời.</p>
-        <button class="btn btn--hero" data-action="next">Bắt đầu trò chơi</button>
+        <p class="subtitle">Cùng bước vào hành trình thử thách kiến thức, lan tỏa tinh thần học đạo và phụng sự.</p>
+        <div class="hero-actions">
+          <button class="btn btn--hero" data-action="next">Bắt đầu trò chơi</button>
+          <span>20 câu hỏi • 15 giây mỗi câu</span>
+        </div>
       </div>
     </section>
   `;

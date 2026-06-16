@@ -65,6 +65,13 @@
   text-align: center;
 }
 
+.slide--title {
+  align-items: start;
+  justify-content: end;
+  padding: clamp(22px, 3vw, 48px);
+  text-align: left;
+}
+
 .title-content,
 .victory-content {
   position: relative;
@@ -73,6 +80,19 @@
   place-items: center;
   width: min(920px, 90%);
   margin: auto;
+}
+
+.title-content--cover {
+  align-items: start;
+  justify-items: start;
+  width: min(740px, 62%);
+  margin: 0 auto 0 0;
+  padding: clamp(18px, 2.2vw, 32px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(8, 13, 26, 0.82), rgba(8, 13, 26, 0.54));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px);
 }
 
 .rules-header {
@@ -187,6 +207,16 @@
     min-height: 100svh;
   }
 
+  .slide--title {
+    justify-content: end;
+    min-height: 100svh;
+    padding: 18px;
+  }
+
+  .title-content--cover {
+    width: 100%;
+  }
+
   .rule-grid,
   .board-grid,
   .pack-switcher,
@@ -207,6 +237,15 @@
 
   .slide {
     padding: clamp(16px, 2.2vw, 34px);
+  }
+
+  .slide--title {
+    padding: clamp(18px, 2.2vw, 34px);
+  }
+
+  .title-content--cover {
+    width: min(650px, 58%);
+    padding: 20px 24px;
   }
 
   .question-grid {
