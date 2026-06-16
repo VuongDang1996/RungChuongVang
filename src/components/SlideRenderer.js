@@ -38,13 +38,19 @@ function renderTitleSlide(state) {
     <section class="slide slide--title">
       <img class="cover-photo" src="/assets/cover.jpg" alt="Tập thể thanh thiếu niên trong chương trình Sáng Danh Đạo Thầy" />
       <div class="cover-overlay" aria-hidden="true"></div>
-      <div class="title-content title-content--cover">
-        <p class="eyebrow">Game Show Tương Tác</p>
-        <h1>Sáng Danh Đạo Thầy</h1>
-        <p class="subtitle">Cùng bước vào hành trình thử thách kiến thức, lan tỏa tinh thần học đạo và phụng sự.</p>
-        <div class="hero-actions">
+      <div class="home-hero">
+        <div class="home-copy">
+          <p class="eyebrow">Game Show Tương Tác</p>
+          <h1>Sáng Danh Đạo Thầy</h1>
+          <p class="subtitle">Cùng bước vào hành trình thử thách kiến thức, lan tỏa tinh thần học đạo và phụng sự.</p>
+        </div>
+        <div class="home-actions">
           <button class="btn btn--hero" data-action="next">Bắt đầu trò chơi</button>
-          <span>20 câu hỏi • 15 giây mỗi câu</span>
+          <div class="home-meta" aria-label="Thông tin trò chơi">
+            <span>Ngành Thiếu</span>
+            <span>20 câu hỏi</span>
+            <span>15 giây mỗi câu</span>
+          </div>
         </div>
       </div>
     </section>
