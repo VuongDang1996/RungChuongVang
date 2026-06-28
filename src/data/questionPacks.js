@@ -1,4 +1,5 @@
 import { questions as nganhThieuQuestions } from "./questions.js";
+import { questions as nganhDongQuestions } from "./nganhDongQuestions.js";
 
 export const questionPacks = [
   {
@@ -11,8 +12,8 @@ export const questionPacks = [
   {
     id: "nganh-dong",
     title: "Ngành Đồng",
-    subtitle: "Sẽ bổ sung sau",
-    description: "Khu vực dành cho bộ câu hỏi Ngành Đồng. Chỉ cần thêm dữ liệu vào mảng questions này.",
-    questions: []
+    subtitle: "20 câu hỏi mới",
+    description: "Bộ câu hỏi Ngành Đồng đã nhập từ file Word, có ảnh minh họa và câu hỏi audio/video chờ bổ sung file.",
+    questions: nganhDongQuestions
   }
 ];

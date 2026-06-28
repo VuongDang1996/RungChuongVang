@@ -41,23 +41,10 @@ export const questions = [
   {
     id: 4,
     level: "Dễ",
-    question: "Khi thực hiện lễ bái cúng Tứ thời tại tư gia vào những ngày thường, tín đồ đạo Cao Đài dâng cúng các lễ phẩm gì?",
-    options: {
-      A: "Thời Tý/Ngọ cúng rượu; thời Mẹo/Dậu cúng nước trong và nước trà.",
-      B: "Thời Tý/Ngọ cúng trà; thời Mẹo/Dậu cúng hoa quả.",
-      C: "Cả 4 thời đều phải dâng đủ Tam bửu: Hoa, Tửu, Trà.",
-      D: "Chỉ thắp hương và mật khấn, không dâng lễ phẩm."
-    },
-    correctAnswer: "A",
-    explanation: "Ngày thường, thời Tý/Ngọ cúng rượu; thời Mẹo/Dậu cúng nước trong và nước trà."
-  },
-  {
-    id: 5,
-    level: "Dễ",
     question: "Hằng ngày, các tín đồ đạo Cao Đài cúng Tứ thời vào các thời gian nào trong ngày?",
     options: {
       A: "Tý khuya, Sửu sáng, Dần trưa, Mẹo chiều.",
-      B: "Tý: 1h khuya; Mẹo: 5h-7h sáng; Ngọ: 11h-1h trưa; Dậu: 5h-7h chiều.",
+      B: "Tý: 23h-1h sáng (1h khuya); Mẹo: 5h-7h sáng; Ngọ: 11h-1h trưa; Dậu: 5h-7h chiều.",
       C: "Thìn sáng, Tỵ trưa, Thân chiều, Hợi tối.",
       D: "Chỉ cúng hai thời chính là thời Ngọ và thời Tý."
     },
@@ -65,7 +52,7 @@ export const questions = [
     explanation: "Tứ thời gồm Tý, Mẹo, Ngọ và Dậu."
   },
   {
-    id: 6,
+    id: 5,
     level: "Dễ",
     question: "Khi thắp hương cúng Thầy, tức Đức Chí Tôn, số lượng cây hương được thắp theo quy định là bao nhiêu cây, tượng trưng cho điều gì?",
     options: {
@@ -78,7 +65,7 @@ export const questions = [
     explanation: "Năm cây hương tượng trưng cho Ngũ khí, Ngũ hành."
   },
   {
-    id: 7,
+    id: 6,
     level: "Dễ",
     question: "Biểu tượng tối cao được vẽ trên quả Càn Khôn và Thánh tượng tại Thiên bàn để môn đệ chiêm ngưỡng và thờ phượng Thầy là gì?",
     options: {
@@ -89,6 +76,19 @@ export const questions = [
     },
     correctAnswer: "B",
     explanation: "Biểu tượng tối cao là Thiên Nhãn, tức con mắt trái."
+  },
+  {
+    id: 7,
+    level: "Dễ",
+    question: "Khi thực hiện lễ bái cúng Tứ thời tại tư gia vào những ngày thường, tín đồ đạo Cao Đài dâng cúng các lễ phẩm gì?",
+    options: {
+      A: "Thời Tý/Ngọ cúng rượu; thời Mẹo/Dậu cúng nước trong và nước trà.",
+      B: "Thời Tý/Ngọ cúng trà; thời Mẹo/Dậu cúng hoa quả.",
+      C: "Cả 4 thời đều phải dâng đủ Tam bửu: Hoa, Tửu, Trà.",
+      D: "Chỉ thắp hương và mật khấn, không dâng lễ phẩm."
+    },
+    correctAnswer: "A",
+    explanation: "Ngày thường, thời Tý/Ngọ cúng rượu; thời Mẹo/Dậu cúng nước trong và nước trà."
   },
   {
     id: 8,
@@ -250,13 +250,8 @@ export const questions = [
     id: 20,
     level: "Nâng cao",
     question: "Thầy dạy: “Nhãn thị chủ tâm, Lưỡng quang chủ tể, Quang thị Thần, Thần thị Thiên, Thiên giả ngã dã”. Đoạn thánh ngôn này giải thích sâu sắc về nguyên lý đạo học của biểu tượng nào?",
-    options: {
-      A: "Đèn Thái Cực ở Thiên bàn.",
-      B: "Thánh tượng Thiên Nhãn, thờ Thiên Nhãn chính là thờ Thầy.",
-      C: "Nghi thức dâng Tam bửu.",
-      D: "Pháp môn tu luyện Tâm pháp bí truyền."
-    },
-    correctAnswer: "B",
+    answerType: "open",
+    correctAnswer: "Thánh tượng Thiên Nhãn. Thờ Thiên Nhãn chính là thờ Thầy.",
     explanation: "Đoạn thánh ngôn giải thích nguyên lý đạo học của Thánh tượng Thiên Nhãn."
   }
 ];
